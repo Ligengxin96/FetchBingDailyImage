@@ -50,8 +50,7 @@ const main = async() => {
   await connectDB();
   await fetchImageFromBing();
   console.log(`Task finish, current time: ${new Date()}`);
+  process.exit(0);
 }
 
-setInterval(() => {
-  main();
-}, 1000 * 60 * 5);
+main();
