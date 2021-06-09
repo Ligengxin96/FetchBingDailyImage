@@ -54,4 +54,4 @@ const main = async() => {
 
 setInterval(() => {
   main();
-}, 1000 * 60);
+}, 1000 * 60 * 5);
