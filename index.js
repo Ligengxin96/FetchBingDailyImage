@@ -46,11 +46,12 @@ const fetchImageFromBing = async() => {
 }
 
 const main = async() => {
-  console.log('Task begin');
+  console.log(`Task begin, current time: ${new Date()}`);
   await connectDB();
   await fetchImageFromBing();
-  console.log('Task end, process exit');
-  process.exit(0);
+  console.log(`Task finish, current time: ${new Date()}`);
 }
-  
-main();
+
+setInterval(() => {
+  main();
+}, 1000 * 60);
