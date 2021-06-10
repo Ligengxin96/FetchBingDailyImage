@@ -1,0 +1,5 @@
+name: Trigger heroku App
+
+on:
+  schedule:
+    - cron: "*/3 * * * *"
