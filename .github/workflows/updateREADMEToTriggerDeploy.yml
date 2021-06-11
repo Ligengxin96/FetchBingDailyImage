@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Update GitHub Profile README
-        uses: theboi/github-update-readme@master
+        uses: theboi/github-update-readme@main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
