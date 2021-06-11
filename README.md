@@ -1,6 +1,6 @@
 ## FetchBingDailyImage
 
-Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:2021-06-11 05:49:38
+Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:2021-06-11 05:57:40
 
 ---
 
