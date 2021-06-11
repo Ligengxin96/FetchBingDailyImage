@@ -1,0 +1,18 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  markscribe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update GitHub Profile README
+        uses: theboi/github-update-readme@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          header: "FetchBingDailyImage"
+          subhead: Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:${{ steps.date.outputs.date }}
