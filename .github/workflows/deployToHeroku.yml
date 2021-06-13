@@ -9,18 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
-      - name: github-update-readme-v2
-        uses: Ligengxin96/github-update-readme-v2@v1.3-Beta
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-        with:
-          header: "FetchBingDailyImage"
-          subhead: Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:${{ steps.date.outputs.date }}
-          repoCount: 1
-
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
