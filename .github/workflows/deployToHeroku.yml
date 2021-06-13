@@ -20,7 +20,7 @@ jobs:
           header: "FetchBingDailyImage"
           subhead: Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:${{ steps.date.outputs.date }}
           repoCount: 1
-    steps:
+
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
