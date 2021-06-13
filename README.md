@@ -1,6 +1,6 @@
 ## FetchBingDailyImage
 
-Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:2021-06-13 07:12:34
+Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:2021-06-13 07:12:48
 
 |[Ligengxin96/github-update-readme-v2](https://github.com/Ligengxin96/github-update-readme-v2) |
                 | :-: |
