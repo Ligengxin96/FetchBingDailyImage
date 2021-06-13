@@ -13,7 +13,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
       - name: github-update-readme-v2
-        uses: Ligengxin96/github-update-readme-v2@v1.2-Beta
+        uses: Ligengxin96/github-update-readme-v2@v1.3-Alpha
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
