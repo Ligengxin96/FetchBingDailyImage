@@ -19,4 +19,4 @@ jobs:
         with:
           header: "FetchBingDailyImage"
           subhead: Fetch Bing Daily Image and store in mongoose. Latest Fetch Time:${{ steps.date.outputs.date }}
-          repoCount: 0
+          repoCount: 1
