@@ -2,7 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   markscribe:
@@ -12,8 +12,8 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
-      - name: Update README
-        uses: theboi/github-update-readme@v1.3.0
+      - name: github-update-readme-v2
+        uses: Ligengxin96/github-update-readme-v2@v1.2-Beta
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
