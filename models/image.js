@@ -18,6 +18,10 @@ const imageSchema = mongoose.Schema({
     url: String,
     urlbase: String,
     wp: Boolean,
+    region: {
+      type: String,
+      default: 'en-US',
+    },
     createdTime: {
         type: Date,
         default: new Date(),
