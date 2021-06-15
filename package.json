@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "keywords": [],
   "author": "Gengxin Li <Ligengxin96@gmail.com>",
