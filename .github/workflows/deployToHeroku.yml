@@ -16,4 +16,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "getbingimages" #Must be unique in Heroku
           heroku_email: "ligengxin96@gmail.com"
-          branch: 'main'
+          branch: 'apis'
