@@ -1,0 +1,28 @@
+name: Deploy To Heroku
+
+on:
+  push:
+    branches:
+      - apis
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # - uses: actions/checkout@v2
+      # - name: Use Node.js 14.x
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14.x
+      # - run: yarn
+      # - run: npm test
+      #   env:
+      #     CONNECTION_URL: ${{secrets.CONNECTION_URL}}
+
+      - name: Deploy To Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "getbingimages" #Must be unique in Heroku
+          heroku_email: "ligengxin96@gmail.com"
