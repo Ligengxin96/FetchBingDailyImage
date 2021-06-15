@@ -31,7 +31,7 @@ const fetchImageFromBing = async(api) => {
       img.imgUrl = bingDomain + img.url;
       const existImage = await getImage(img.hsh);
       if (existImage) {
-        console.log('This image is exist, need update image info.')
+        console.log(`This image with hsh: ${existImage.hsh} is exist, need update image info.`);
         img.lastUpdateTime = new Date();
         await updatImage(img.hsh, img);
       } else {

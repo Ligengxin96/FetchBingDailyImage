@@ -20,7 +20,7 @@ const imageSchema = mongoose.Schema({
     wp: Boolean,
     region: {
       type: String,
-      default: 'en-US',
+      default: 'en-us',
     },
     createdTime: {
         type: Date,
