@@ -1,0 +1,20 @@
+name: Check Api health
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+
+jobs:
+  markscribe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn
+      - run: npm test
+        env:
+          CONNECTION_URL: ${{secrets.CONNECTION_URL}}
