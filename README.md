@@ -16,12 +16,12 @@ Get target region images.
 
 You can get the images of the `zh-cn` region images by use this example: https://getbingimages.herokuapp.com/v1/getimages/zh-cn 
 
-- `regoin` parameters
+- `regoin` parameter
   - value: `zh-cn` | `en-us`
 
-### Common parameters: size
+### Common parameter: size
 
-You can get the different size images url by pass this parameters.
+You can get the different size images url by pass this parameter.
 
 example: https://getbingimages.herokuapp.com/v1/getimages?size=1366x768
 
