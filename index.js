@@ -8,7 +8,7 @@ import imageRouter from './routes/image.js';
 
 dotenv.config();
 
-const port = 3001;
+const port = process.env.PORT || 5000;
 const databaseConnectStr = process.env.CONNECTION_URL;
 
 const app = express();
