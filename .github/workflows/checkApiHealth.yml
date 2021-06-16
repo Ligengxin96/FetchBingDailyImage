@@ -2,14 +2,16 @@ name: Check Api health
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   markscribe:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v2
+      
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
