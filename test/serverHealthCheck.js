@@ -7,11 +7,10 @@ import getImageRequest from '../utils/getImageRequest.js'
 
 dotenv.config();
 
-
 describe('test server health', function() {
   describe('test mongoose server health', function() {
     it('should connect mongoose db successful', async function() {
-      this.retries(2);
+      this.retries(5);
       try {
         const response = await mongoose.connect(process.env.CONNECTION_URL);
         assert.notStrictEqual(response, undefined);
@@ -24,7 +23,7 @@ describe('test server health', function() {
   
   describe('test Bing api health', function() {
     it('Bing api should return image info', async function() {
-      this.retries(2);
+      this.retries(5);
       try {
         for await (const api of bingImageApis) {
           const result = await getImageRequest(api.url);
