@@ -8,7 +8,7 @@ Get all images.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getImages/random`
 
-Get 1 random images.
+Get 1 random image.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getImages/{region}`
 
