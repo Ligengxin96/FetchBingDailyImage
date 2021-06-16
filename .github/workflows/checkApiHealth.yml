@@ -1,8 +1,8 @@
-name: Check Api health
+name: Check Get Bing Images Server Api Health
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
 
 jobs:
   markscribe:
