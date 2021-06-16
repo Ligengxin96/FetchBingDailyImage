@@ -1,21 +1,48 @@
 import ImageSchema from '../models/image.js';
 
-const processData = (images) => {
+const supportImageSizes = [
+  '320x240',
+  '640x360',
+  '640x480',
+  '800x600',
+  '800x480',
+  '1024x768',
+  '1280x720',
+  '1280x768',
+  '1366x768',
+  '1920x1200',
+  '1920x1080'
+];
+
+const processData = (images, size) => {
   if (Array.isArray(images)) {
-    return images.map(img => { return { hsh: img.hsh, copyright: img.copyright, title: img.title, imgUrl: img.imgUrl }});
+    return images.map(img => { return { hsh: img.hsh, copyright: img.copyright, title: img.title, imgUrl: img.imgUrl.replace(/1920x1080/g, size) }});
   }
-  return { hsh: images.hsh, copyright: images.copyright, title: images.title, imgUrl: images.imgUrl };
+  return { hsh: images.hsh, copyright: images.copyright, title: images.title, imgUrl: images.imgUrl.replace(/1920x1080/g, size) };
+}
+
+const getImageSize = (request) => {
+  const ip = request.headers['x-forwarded-for'] || request.socket.remoteAddress;
+  console.log(`request '${request.originalUrl}' from '${ip}'`);
+  const { size = '1920x1080' } = request.query;
+  const afterTrimSize = size.replace(/ /g, '');
+  if (supportImageSizes.includes(afterTrimSize)) {
+    return { isCorrectSize: true, size: afterTrimSize };
+  }
+  return { isCorrectSize: false, size: '1920x1080' };
 }
 
 export const getImages = async (request, response) => {
   request.setTimeout(60000);
   try {
+    const { isCorrectSize, size } = getImageSize(request);
     const images = await ImageSchema.find();
-    const data = processData(images);
+    const data = processData(images, size);
+    const message = isCorrectSize ? 'successful' : `No specified size images, return '1920x1080' size images`;
     response.status(200).json({
       isSuccess: true,
       data,
-      message: 'successful'
+      message
     });
   } catch (error) {
     response.status(404).json({
@@ -29,13 +56,15 @@ export const getImages = async (request, response) => {
 export const getImagesByRegion = async (request, response) => { 
   request.setTimeout(30000);
   try {
+    const { isCorrectSize, size } = getImageSize(request);
     const { region = 'zh-cn' } = request.params;
     const images = await ImageSchema.find({ region });
-    const data = processData(images);
+    const data = processData(images, size);
+    const message = isCorrectSize ? 'successful' : `No specified size images, return '1920x1080' size images`;
     response.status(200).json({
       isSuccess: true,
       data,
-      message: 'successful'
+      message
     });
   } catch (error) {
     response.status(404).json({
@@ -49,14 +78,16 @@ export const getImagesByRegion = async (request, response) => {
 export const getRandomImage = async (request, response) => {
   request.setTimeout(10000);
   try {
+    const { isCorrectSize, size } = getImageSize(request);
     const count = await ImageSchema.countDocuments().exec();
     const random = Math.floor(Math.random() * count)
     const image = await ImageSchema.findOne().skip(random).exec();
-    const data = processData(image);
+    const data = processData(image, size);
+    const message = isCorrectSize ? 'successful' : `No specified size images, return '1920x1080' size image`;
     response.status(200).json({
       isSuccess: true,
       data,
-      message: 'successful'
+      message
     });
   } catch (error) {
     response.status(404).json({
