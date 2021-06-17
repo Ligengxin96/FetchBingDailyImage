@@ -12,7 +12,7 @@ describe('test server health', function() {
     it('should connect mongoose db successful', async function() {
       this.retries(5);
       try {
-        const response = await mongoose.connect(process.env.CONNECTION_URL);
+        const response = await mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
@@ -25,7 +25,7 @@ describe('test server health', function() {
     it('Bing api should return image info', async function() {
       this.retries(5);
       try {
-        for await (const api of bingImageApis) {
+        for (const api of bingImageApis) {
           const result = await getImageRequest(api.url);
           const imgs = JSON.parse(result).images;
           assert.notStrictEqual(imgs, undefined);
