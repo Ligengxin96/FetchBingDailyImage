@@ -1,4 +1,4 @@
-name: Deploy Get Bing Images Server To Heroku
+name: Deploy Get Images Server To Heroku
 
 on:
   push:
