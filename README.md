@@ -12,7 +12,7 @@ Get 1 random image.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getimages/{region}`
 
-Get target region images.
+Get specified region images.
 
 You can get the images of the `zh-cn` region images by use this example: https://getbingimages.herokuapp.com/v1/getimages/zh-cn 
 
