@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn
-      - run: npm test
+      - run: yarn test
         env:
           CONNECTION_URL: ${{secrets.CONNECTION_URL}}
 

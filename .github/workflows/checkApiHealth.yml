@@ -1,4 +1,4 @@
-name: Check Get Bing Images Server Api Health
+name: Check Get Images Server Api Health
 
 on:
   schedule:
@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn
-      - run: npm run test-api
+      - run: yarn run test-api
         env:
           CONNECTION_URL: ${{secrets.CONNECTION_URL}}

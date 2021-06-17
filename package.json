@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 30000 --exit",
+    "test": "mocha --timeout 200000 --exit",
     "test-api": "mocha test/apiHealthCheck.js --timeout 100000 --exit"
   },
   "keywords": [],
