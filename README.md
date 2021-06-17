@@ -1,8 +1,8 @@
 ## About FetchBingDailyImage
 
-The main branch project can fetch bing daily image and store in mongoose.
+The `main` branch project can fetch bing daily image and store in mongoose.
 
-The apis branch project can export the apis so that we can get bing historical daily images.
+The `apis` branch project can export the apis so that we can get bing historical daily images.
 
 ## How it work
 
