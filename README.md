@@ -1,6 +1,6 @@
 ## About GetBingImages
 
-You can use below api to the bing history daily images.
+You can use below apis to get bing history daily images.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getimages`
 
@@ -8,7 +8,7 @@ Get all images.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getimages/random`
 
-Get 1 random image.
+Get one random image.
 
 ### (GET) `https://getbingimages.herokuapp.com/v1/getimages/{region}`
 
