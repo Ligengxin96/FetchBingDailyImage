@@ -1,6 +1,6 @@
 ## About FetchBingDailyImage
 
-The `main` branch project can fetch bing daily image and store in mongoose.
+The `main` branch project can fetch bing daily image and store in MongoDB.
 
 The `apis` branch project can export the apis so that we can get bing historical daily images.
 
@@ -14,11 +14,11 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 ## Latest fetch time
 
-Latest fetch time: `2021-06-17 08:03:48`
+Latest fetch time: `2021-06-18 08:14:50`
 
 ## To everyone
 
-If this project is helpful to you please start this project, this is an encouragement to me `:)`
+If this project is helpful to you please star this project, this is an encouragement to me `:)`
 
 
 
