@@ -9,8 +9,8 @@ import getBingImagesServerApi from '../../config/getBingImagesServerApi.js';
 dotenv.config();
 
 describe('test get bing images server health', function() {
-  describe('test bing images server MongoDB health', function() {
-    it('should connect MongoDB successful', async function() {
+  describe('test get bing images server MongoDB health', function() {
+    it('should connect get bing images server MongoDB successful', async function() {
       this.retries(5);
       try {
         const response = await mongoose.connect(process.env.BINGIMAGE_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });

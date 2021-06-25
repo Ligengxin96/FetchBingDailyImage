@@ -10,7 +10,7 @@ dotenv.config();
 
 describe('test ours album server health', function() {
   describe('test ours album server MongoDB health', function() {
-    it('should connect MongoDB successful', async function() {
+    it('should connect ours album server MongoDB successful', async function() {
       this.retries(5);
       try {
         const response = await mongoose.connect(process.env.OURS_ALBUUM_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
