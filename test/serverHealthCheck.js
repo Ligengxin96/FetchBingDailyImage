@@ -16,6 +16,7 @@ describe('test server health', function() {
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
+        console.log(JSON.stringify(erros));
         assert(false);
       }
     });
@@ -40,6 +41,7 @@ describe('test server health', function() {
           assert.notStrictEqual(imgs[0].url, '');
         }
       } catch (error) {
+        console.log(JSON.stringify(erros));
         assert(false);
       }
     });
