@@ -17,7 +17,7 @@ describe('test get bing images server health', function() {
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
-        console.log(JSON.stringify(erros));
+        console.error(JSON.stringify(error));
         assert(false);
       }
     });
@@ -34,7 +34,7 @@ describe('test get bing images server health', function() {
           assert.notStrictEqual(imgs, null);
         }
       } catch (error) {
-        console.log(JSON.stringify(erros));
+        console.error(JSON.stringify(error));
         assert(false);
       }
     });

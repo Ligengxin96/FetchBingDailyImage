@@ -17,7 +17,7 @@ describe('test ours album server health', function() {
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
-        console.log(JSON.stringify(erros));
+        console.error(JSON.stringify(error));
         assert(false);
       }
     });
@@ -33,7 +33,7 @@ describe('test ours album server health', function() {
           assert(resData.isSuccess);
         }
       } catch (error) {
-        console.log(JSON.stringify(erros));
+        console.error(JSON.stringify(error));
         assert(false);
       }
     });
