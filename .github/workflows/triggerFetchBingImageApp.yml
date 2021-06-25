@@ -18,7 +18,8 @@ jobs:
       - run: yarn
       - run: yarn test
         env:
-          CONNECTION_URL: ${{secrets.CONNECTION_URL}}
+          BINGIMAGE_CONNECTION_URL: ${{secrets.BINGIMAGE_CONNECTION_URL}}
+          OURS_ALBUUM_CONNECTION_URL: ${{secrets.OURS_ALBUUM_CONNECTION_URL}}
 
       - name: Deploy To Heroku
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
