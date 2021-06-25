@@ -12,7 +12,7 @@ describe('test server health', function() {
     it('should connect mongoose db successful', async function() {
       this.retries(5);
       try {
-        const response = await mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        const response = await mongoose.connect(process.env.BINGIMAGE_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
