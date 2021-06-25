@@ -1,11 +1,8 @@
 import assert from 'assert';
-import dotenv from 'dotenv';
 
 import sendRequest from '../../utils/sendRequest.js';
 
 import oursAlbumServerApi from '../../config/oursAlbumServerApi.js';
-
-dotenv.config();
 
 describe('test ours album api health', function() {
   it('api should return data successful', async function() {

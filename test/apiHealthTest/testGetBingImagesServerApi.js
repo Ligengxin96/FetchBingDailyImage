@@ -1,12 +1,9 @@
 import assert from 'assert';
-import dotenv from 'dotenv';
 
 import sendRequest from '../../utils/sendRequest.js';
 
 import getBingImagesServerApi from '../../config/getBingImagesServerApi.js';
 
-dotenv.config();
-  
 describe('test get bing images api health', function() {
   it('api should return image info', async function() {
     this.retries(5);

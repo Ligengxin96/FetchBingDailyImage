@@ -1,10 +1,7 @@
 import assert from 'assert';
-import dotenv from 'dotenv';
 
 import bingImageApis from '../config/bingApi.js';
 import sendRequest from '../utils/sendRequest.js'
-
-dotenv.config();
 
 describe('test Bing api health', function() {
   it('Bing api should return image info', async function() {
