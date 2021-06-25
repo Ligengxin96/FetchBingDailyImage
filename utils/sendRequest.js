@@ -6,7 +6,7 @@ const sendRequest = (url) =>{
           if (error) {
             reject(error);
           }
-          if (response.statusCode > 299) {
+          if (response.statusCode > 399) {
             reject(`Invalid status code: ${response.statusCode}`);
           }
           resolve(body);
