@@ -13,7 +13,7 @@ describe('test ours album server health', function() {
     it('should connect ours album server MongoDB successful', async function() {
       this.retries(5);
       try {
-        const response = await mongoose.connect(process.env.OURS_ALBUUM_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        const response = await mongoose.connect(process.env.ALBUM_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
         assert.notStrictEqual(response, undefined);
         assert.notStrictEqual(response, null);
       } catch (error) {
