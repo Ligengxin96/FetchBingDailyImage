@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 200000 --exit",
-    "test-api": "mocha test/apiHealthCheck.js --timeout 100000 --exit"
+    "test": "mocha --timeout 999999 --exit",
+    "test-api": "mocha test/apiHealthTest/* --timeout 999999 --exit"
   },
   "keywords": [],
   "author": "Gengxin Li <Ligengxin96@gmail.com>",
