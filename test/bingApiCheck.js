@@ -2,7 +2,7 @@ import assert from 'assert';
 import dotenv from 'dotenv';
 
 import bingImageApis from '../config/bingApi.js';
-import getImageRequest from '../utils/getImageRequest.js'
+import sendRequest from '../utils/sendRequest.js'
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ describe('test Bing api health', function() {
     this.retries(5);
     try {
       for (const api of bingImageApis) {
-        const result = await getImageRequest(api.url);
+        const result = await sendRequest(api.url);
         const imgs = JSON.parse(result).images;
         assert.notStrictEqual(imgs, undefined);
         assert.notStrictEqual(imgs, null);

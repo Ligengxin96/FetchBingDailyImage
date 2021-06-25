@@ -1,7 +1,7 @@
 import assert from 'assert';
 import dotenv from 'dotenv';
 
-import getImageRequest from '../../utils/getImageRequest.js';
+import sendRequest from '../../utils/sendRequest.js';
 
 import oursAlbumServerApi from '../../config/oursAlbumServerApi.js';
 
@@ -12,7 +12,7 @@ describe('test ours album api health', function() {
     this.retries(5);
     try {
       for (const api of oursAlbumServerApi) {
-        const result = await getImageRequest(api);
+        const result = await sendRequest(api);
         const resData = JSON.parse(result);
         assert(resData.isSuccess);
       }

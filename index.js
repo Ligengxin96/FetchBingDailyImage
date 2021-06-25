@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import bingImageApis from './config/bingApi.js';
-import getImageRequest from './utils/getImageRequest.js'
+import sendRequest from './utils/sendRequest.js'
 import { getImage, createImage, updatImage } from './controllers/image.js'
 
 dotenv.config();
@@ -23,7 +23,7 @@ const connectDB = async() => {
 const fetchImageFromBing = async(api) => {
   try {
     const { url, region } = api;
-    const result = await getImageRequest(url);
+    const result = await sendRequest(url);
     const images = JSON.parse(result).images;
     for (let img of images) {
       img['_id'] = img.hsh;
