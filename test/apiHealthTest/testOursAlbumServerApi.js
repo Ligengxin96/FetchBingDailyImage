@@ -24,7 +24,7 @@ describe('test ours album server health', function() {
   });
   
   describe('test ours album api health', function() {
-    it('api should return data successful', async function() {
+    it.skip('api should return data successful', async function() {
       this.retries(5);
       try {
         for (const api of oursAlbumServerApi) {
