@@ -1,4 +1,4 @@
-name: Check Get Images Server Api Health
+name: Check Heroku Server Api Health
 
 on:
   schedule:
@@ -19,7 +19,7 @@ jobs:
       - run: yarn
       - run: yarn run test-api
         env:
-          OURS_ALBUUM_CONNECTION_URL: ${{ secrets.OURS_ALBUUM_CONNECTION_URL }}
+          OURS_ALBUM_CONNECTION_URL: ${{ secrets.OURS_ALBUM_CONNECTION_URL }}
           BINGIMAGE_CONNECTION_URL: ${{ secrets.BINGIMAGE_CONNECTION_URL }}
           
       - name: Get current trigger time
