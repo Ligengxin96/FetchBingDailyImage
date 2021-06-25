@@ -19,7 +19,8 @@ jobs:
       - run: yarn
       - run: yarn run test-api
         env:
-          CONNECTION_URL: ${{secrets.CONNECTION_URL}}
+          BINGIMAGE_CONNECTION_URL: ${{secrets.BINGIMAGE_CONNECTION_URL}}
+          OURS_ALBUUM_CONNECTION_URL: ${{secrets.OURS_ALBUUM_CONNECTION_URL}}
           
       - name: Get current trigger time
         id: date
