@@ -14,7 +14,7 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 ## Latest fetch time
 
-Latest fetch time: `2021-06-24 08:08:48`
+Latest fetch time: `2021-06-25 08:14:24`
 
 ## To everyone
 
