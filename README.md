@@ -1,31 +1,30 @@
+## About FetchBingDailyImage
 
-    ## About FetchBingDailyImage
+The `main` branch project can fetch bing daily image and store in MongoDB.
 
-    
-    The `main` branch project can fetch bing daily image and store in MongoDB.
+The `apis` branch project can expose the apis so that we can get bing historical daily images.
 
-    The `apis` branch project can expose the apis so that we can get bing historical daily images.
+## How it work
 
-    ## How it work
+Use schedule Github Action to automatically update readme.md file to trigger the Github Action to deploy main branch project to heroku.
 
-    Use schedule Github Action to automatically update readme.md file to trigger the Github Action to deploy main branch project to heroku.
+After deploying in heroku, heroku will automatically execute `npm start` command to run this project, so we can fetch the image everyday.
 
-    After deploying in heroku, heroku will automatically execute `npm start` command to run this project, so we can fetch the image everyday.
+This is like we deploy a azure function in heroku, we can get a free azure function by this way.
 
-    This is like we deploy a azure function in heroku, we can get a free azure function by this way.
+## Repo traffic data
 
-    ## Repo traffic data
+Total views data: `'{viewsData}'`
 
-    Total views data: `{"count":1489,"uniques":10}`
+Total clones data: `'{clonesData}'`
 
-    Total clones data: `{"count":815,"uniques":68}`
+## Latest fetch images time
 
-    ## Latest fetch images time
+Latest fetch images time: `2021-06-26 11:19:40`
 
-    Latest fetch images time: `2021-06-26 08:13:46`
+## To everyone
 
-    ## To everyone
+If this project is helpful to you please star this project, this is an encouragement to me `:)`
 
-    If this project is helpful to you please star this project, this is an encouragement to me `:)`
-    
-    
+
+
