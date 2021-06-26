@@ -22,7 +22,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          showTrafficData: ${{ show: true, position: 'subhead' }}
+          showTrafficData: ${{ toJson('{"show":true, "position":"subhead"}') }}
           header: About FetchBingDailyImage
           subhead: |
                   The `main` branch project can fetch bing daily image and store in MongoDB.
