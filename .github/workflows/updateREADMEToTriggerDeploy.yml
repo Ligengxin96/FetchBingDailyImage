@@ -18,11 +18,11 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
       - name: github-update-readme-V2.0
-        uses: Ligengxin96/github-update-readme@v1.6.0
+        uses: Ligengxin96/github-update-readme@v1.6.1
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          showTrafficData: ${{ toJson('{"show":true, "position":"subhead"}') }}
+          showTrafficData: true
           header: About FetchBingDailyImage
           subhead: |
                   The `main` branch project can fetch bing daily image and store in MongoDB.
