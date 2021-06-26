@@ -14,13 +14,13 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 ## Repo traffic data
 
-Total views data: `{count: 1532, uniques: 10}`
+Total views data: `{ count: 1532, uniques: 10 }`
 
-Total clones data: `{count: 1532, uniques: 10}`
+Total clones data: `{ count: 834, uniques: 73 }`
 
 ## Latest fetch images time
 
-Latest fetch images time: `2021-06-26 11:37:05`
+Latest fetch images time: `2021-06-26 11:47:26`
 
 ## To everyone
 
