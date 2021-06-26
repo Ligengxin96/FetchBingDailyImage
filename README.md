@@ -1,5 +1,5 @@
 
-    About FetchBingDailyImage
+    ## About FetchBingDailyImage
 
     
     The `main` branch project can fetch bing daily image and store in MongoDB.
