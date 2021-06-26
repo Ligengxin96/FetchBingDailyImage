@@ -3,6 +3,11 @@ name: Automated Update README
 on:
   schedule:
     - cron: "*/5 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/updateREADMEToTriggerDeploy.yml
 
 jobs:
   markscribe:
@@ -17,9 +22,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          showTrafficData:
-            show: true
-            position: subhead
+          showTrafficData: ${{ fromJson({ show: true, position: subhead }) }}
           header: About FetchBingDailyImage
           subhead: |
                   The `main` branch project can fetch bing daily image and store in MongoDB.
