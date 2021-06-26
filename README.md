@@ -19,6 +19,15 @@ example: https://getbingimages.herokuapp.com/v1/getimages/zh-cn
 - `regoin` parameter detail
   - value: `zh-cn` | `en-us`
 
+### `(GET) https://getbingimages.herokuapp.com/v1/getimages/random/{region}`
+
+Get one random specified region image.
+
+example: https://getbingimages.herokuapp.com/v1/getimages/random/en-us
+
+- `regoin` parameter detail
+  - value: `zh-cn` | `en-us`
+
 ### Common parameter: `size`
 
 Get the different size images.

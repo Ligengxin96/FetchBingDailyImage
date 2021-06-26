@@ -15,10 +15,13 @@ const supportImageSizes = [
 ];
 
 const processData = (images, size) => {
+  if (images == null) {
+    return [];
+  }
   if (Array.isArray(images)) {
     return images.map(img => { return { hsh: img.hsh, copyright: img.copyright, title: img.title, imgUrl: img.imgUrl.replace(/1920x1080/g, size) }});
   }
-  return { hsh: images.hsh, copyright: images.copyright, title: images.title, imgUrl: images.imgUrl.replace(/1920x1080/g, size) };
+  return [{ hsh: images.hsh, copyright: images.copyright, title: images.title, imgUrl: images.imgUrl.replace(/1920x1080/g, size) }];
 }
 
 const getImageSize = (request) => {
@@ -57,7 +60,7 @@ export const getImagesByRegion = async (request, response) => {
   request.setTimeout(60000);
   try {
     const { size, additionalMessage } = getImageSize(request);
-    const { region = 'zh-cn' } = request.params;
+    const { region } = request.params;
     const images = await ImageSchema.find({ region });
     const data = processData(images, size);
     response.status(200).json({
@@ -78,9 +81,17 @@ export const getRandomImage = async (request, response) => {
   request.setTimeout(30000);
   try {
     const { size, additionalMessage } = getImageSize(request);
-    const count = await ImageSchema.countDocuments().exec();
-    const random = Math.floor(Math.random() * count)
-    const image = await ImageSchema.findOne().skip(random).exec();
+    const { region } = request.params;
+    let image;
+    if (region) {
+      const count = await ImageSchema.countDocuments({ region }).exec();
+      const random = Math.floor(Math.random() * count);
+      image = await ImageSchema.findOne({ region }).skip(random).exec();
+    } else {
+      const count = await ImageSchema.countDocuments().exec();
+      const random = Math.floor(Math.random() * count);
+      image = await ImageSchema.findOne().skip(random).exec();
+    }
     const data = processData(image, size);
     response.status(200).json({
       isSuccess: true,
