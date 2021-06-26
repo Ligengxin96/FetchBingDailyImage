@@ -3,6 +3,11 @@ name: Check Heroku Server Api Health
 on:
   schedule:
     - cron: "*/30 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/checkApiHealth.yml
 
 jobs:
   markscribe:
