@@ -37,7 +37,7 @@ jobs:
 
                   This is like we deploy a azure function in heroku, we can get a free azure function by this way.
 
-                  ## Repo traffic data
+                  ## Last 14 days repo traffic data
 
                   Total views data: `'{viewsData}'`
 
