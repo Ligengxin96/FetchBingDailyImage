@@ -11,7 +11,7 @@ describe('test ours album api health', function() {
       for (const api of oursAlbumServerApi) {
         const result = await sendRequest(api);
         const resData = JSON.parse(result);
-        assert(resData.isSuccess);
+        assert.strictEqual(resData.isSuccess, true);
       }
     } catch (error) {
       console.error(JSON.stringify(error));
