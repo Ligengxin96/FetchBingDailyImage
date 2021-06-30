@@ -17,8 +17,9 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
-      - name: github-update-readme-V2.0
-        uses: Ligengxin96/github-update-readme@v1.7.0
+
+      - name: UpdateReadmeAction-Private
+        uses: Ligengxin96/UpdateReadmeAction-Private@v1.0-private-alpha
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -37,7 +38,7 @@ jobs:
 
                   This is like we deploy a azure function in heroku, we can get a free azure function by this way.
 
-                  ## Last 14 days repo traffic data
+                  ## `'{startDate}'` To `'{endDate}'` '{repo}' repo traffic data
 
                   Total views data: `'{viewsData}'`
 
