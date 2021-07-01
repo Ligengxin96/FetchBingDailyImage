@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha --timeout 999999 --exit",
-    "test-api": "mocha test/apiHealthTest/* --timeout 999999 --exit"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Gengxin Li <Ligengxin96@gmail.com>",
