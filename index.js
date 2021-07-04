@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import axios from 'axios';
 import dotenv from 'dotenv';
 
 import bingImageApis from './config/bingApi.js';
@@ -20,6 +21,46 @@ const connectDB = async() => {
   }
 }
 
+const createPost = async(img) => {
+  const serverhost = process.env.SERVER_HOST; 
+  const formValues = { email: process.env.EMAIL , password: process.env.PASSWORD };
+  const API = axios.create({ baseURL: serverhost });
+  
+  const userPrefix = '/v1/user';
+  const postPrefix = '/v1/post';
+
+  let userInfo = null;
+  try {
+    const response = await API.post(`${userPrefix}/login`, formValues);
+    userInfo = response?.data?.userInfo;
+  } catch (error) {
+    console.error(`Failed to login with error: ${error.message}`)
+  }
+
+  console.log(`Login successful, userInfo: ${JSON.stringify(userInfo)}`);
+
+  API.interceptors.request.use((req) => {
+    req.headers.Authorization = `Bearer ${userInfo.token}`;
+    return req;
+  });
+
+  const commaIndex = img.copyright.indexOf('，') > -1 ? img.copyright.indexOf('，') : img.copyright.indexOf(',');
+  const copyrightIconIndex = img.copyright.indexOf('©');
+
+  const title = img.copyright.substring(0, commaIndex);
+  const tags = img.copyright.substring(commaIndex + 1, copyrightIconIndex - 1).trim().split(',');
+
+  let createdPost = null;
+  try {
+    const newPost = { message: img.copyright, title, tags: [...tags, img.region.toUpperCase()], selectedFile: img.imgUrl.replace(/1920x1080/g, '320x240') }
+    createdPost = await API.post(`${postPrefix}`, newPost);
+  } catch (error) {
+    console.error(`Failed to create post with error: ${error.message}`);
+  }
+ 
+  console.log(`Create post successful, postId: ${createdPost.data.data[0]._id}`);
+}
+
 const fetchImageFromBing = async(api) => {
   try {
     const { url, region } = api;
@@ -34,9 +75,11 @@ const fetchImageFromBing = async(api) => {
         console.log(`This image with hsh: ${existImage.hsh} is exist, need update image info.`);
         img.lastUpdateTime = new Date();
         await updatImage(img.hsh, img);
+        await createPost(img);
       } else {
         console.log(`Fetch image from Bing successful, img hsh: ${img.hsh}, img url: ${img.imgUrl}`);
         await createImage(img);
+        await createPost(img);
       }
     }
   } catch (error) {
