@@ -1,6 +1,7 @@
 ## About FetchBingDailyImage
 
-The `main` branch project can fetch bing daily image and store in MongoDB.
+The `main` branch project can fetch bing daily image and store them in MongoDB.
+It also can create a post automatically, you can see the images list in [this website](https://oursalbum.netlify.app)
 
 The `apis` branch project can expose the apis so that we can get bing historical daily images.
 
@@ -14,13 +15,13 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 ## `2021-06-15` To `2021-07-04` FetchBingDailyImage repo traffic data
 
-Total views data: `{ count: 1144, uniques: 29 }`
+Total views data: `{ count: 1113, uniques: 29 }`
 
-Total clones data: `{ count: 809, uniques: 110 }`
+Total clones data: `{ count: 796, uniques: 110 }`
 
 ## Latest fetch images time
 
-Latest fetch images time: `2021-07-04 08:12:01`
+Latest fetch images time: `2021-07-04 15:50:19`
 
 ## To everyone
 
