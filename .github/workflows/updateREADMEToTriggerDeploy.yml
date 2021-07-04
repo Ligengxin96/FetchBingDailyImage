@@ -27,7 +27,8 @@ jobs:
           apiPath: https://getrepootrafficdata.herokuapp.com/v1/getrepoinfo
           header: About FetchBingDailyImage
           subhead: |
-                  The `main` branch project can fetch bing daily image and store in MongoDB.
+                  The `main` branch project can fetch bing daily image and store them in MongoDB.
+                  It also can create a post automatically, you can see the images list in [this website](https://oursalbum.netlify.app)
 
                   The `apis` branch project can expose the apis so that we can get bing historical daily images.
 
