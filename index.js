@@ -75,7 +75,6 @@ const fetchImageFromBing = async(api) => {
         console.log(`This image with hsh: ${existImage.hsh} is exist, need update image info.`);
         img.lastUpdateTime = new Date();
         await updatImage(img.hsh, img);
-        await createPost(img);
       } else {
         console.log(`Fetch image from Bing successful, img hsh: ${img.hsh}, img url: ${img.imgUrl}`);
         await createImage(img);
