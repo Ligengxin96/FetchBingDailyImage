@@ -39,7 +39,7 @@ const getImageSize = (request) => {
 export const getImages = async (request, response) => {
   request.setTimeout(120000);
   try {
-    const { id } = request.params;
+    const { id } = request.query;
     const queryCondtion = id ? { _id: id } : {};
     const { size, additionalMessage } = getImageSize(request);
     const images = await ImageSchema.find(queryCondtion);
