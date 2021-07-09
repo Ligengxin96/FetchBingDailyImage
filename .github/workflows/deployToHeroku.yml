@@ -19,6 +19,7 @@ jobs:
           script: |
             cd  ~/server/FetchBingDailyImage
             git pull
+            docker stop get-images || true && docker rm get-images || true
             docker build -t  get-images .
-            docker run -dp 5001:5001 get-images
+            docker run -dp 0.0.0.0:5001:5001 get-images
             
