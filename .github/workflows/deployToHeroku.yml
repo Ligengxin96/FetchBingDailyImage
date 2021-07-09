@@ -7,15 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
     steps:
-      - uses: actions/checkout@v2
-      - id: foo
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: docker build .
+      - name: ssh to servedr
+        run: echo ${{ secrets.USERNAME }}@${{ secrets.HOST }}
+        run: run ssh ${{ secrets.HOST }}
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
 
