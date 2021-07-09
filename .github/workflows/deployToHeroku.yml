@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        
       - name: Upload repo to own server
         uses: garygrossgarten/github-action-scp@release
         with:
@@ -16,5 +19,5 @@ jobs:
           remote: ~/server/FetchBingDailyImage
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{secrets.SSH_PRIVATE_KEY}}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
