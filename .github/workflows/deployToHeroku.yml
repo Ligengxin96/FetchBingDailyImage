@@ -11,6 +11,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+      - id: foo
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
