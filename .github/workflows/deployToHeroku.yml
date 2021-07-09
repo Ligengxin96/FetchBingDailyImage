@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         uses: appleboy/ssh-action@master
-        host: ${{ secrets.HOST }}
+        with:
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
 
