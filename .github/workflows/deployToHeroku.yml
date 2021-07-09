@@ -9,15 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v2
-        
+
       - name: Upload repo to own server
-        uses: garygrossgarten/github-action-scp@release
+        uses: appleboy/ssh-action@master
         with:
-          local: FetchBingDailyImage
-          remote: ~/server/FetchBingDailyImage
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd  ~/server/FetchBingDailyImage
+            git pull
+            docker build -t  get-images .
+            docker run -dp 5001:5001 get-images
+            
