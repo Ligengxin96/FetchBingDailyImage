@@ -1,4 +1,4 @@
-name: Deploy Get Images Server To Heroku
+name: Deploy Get Images Service To Own Server
 
 on:
   push:
@@ -10,22 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-      - run: yarn
-      - run: yarn test
-        env:
-          CONNECTION_URL: ${{secrets.CONNECTION_URL}}
-        
-      - name: Deploy To Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "getbingimages" #Must be unique in Heroku
-          heroku_email: "ligengxin96@gmail.com"
+      - uses: actions/checkout@v2
+        uses: appleboy/ssh-action@master
+        host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
