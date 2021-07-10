@@ -4,9 +4,9 @@ import { getImages, getImagesByRegion, getRandomImage } from '../controllers/ima
 
 const router = express.Router();
 
-router.get('/', getImages);
+router.get('/page/:currentPage', getImages);
 router.get('/random', getRandomImage);
-router.get('/:region', getImagesByRegion);
+router.get('/page/:currentPage/:region', getImagesByRegion);
 router.get('/random/:region', getRandomImage);
 
 

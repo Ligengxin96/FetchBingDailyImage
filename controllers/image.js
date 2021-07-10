@@ -1,5 +1,7 @@
 import ImageSchema from '../models/image.js';
 
+const LIMIT = 20;
+
 const supportImageSizes = [
   '320x240',
   '640x360',
@@ -40,13 +42,38 @@ export const getImages = async (request, response) => {
   request.setTimeout(120000);
   try {
     const { id } = request.query;
-    const queryCondtion = id ? { _id: id } : {};
+    const { currentPage = 1 } = request.params;
+    const page = parseInt(currentPage);
+
+    if (!page || page < 1) {
+      return response.status(400).send({
+        isSuccess: false,
+        data: [],
+        message: `Failed, currentPage should be a integer that greater than 0. But you provide is '${currentPage}'`
+      });
+    }
+
+    const queryCondition = id ? { _id: id } : {};
+    const startIndex = (page - 1) * LIMIT; 
+    const total = await ImageSchema.countDocuments(queryCondition);
+    const maxPage = Math.ceil(total / LIMIT);
+
+    if (page > maxPage) {
+      return response.status(400).send({
+        isSuccess: false,
+        data: [],
+        pagination: { currentPage: page, maxPage, total },
+        message: `Failed, currentPage can bigger then maxPage, maxPage is ${maxPage}`
+      });
+    }
+
     const { size, additionalMessage } = getImageSize(request);
-    const images = await ImageSchema.find(queryCondtion);
+    const images = await ImageSchema.find(queryCondition).sort({ _id: 1 }).skip(startIndex).limit(LIMIT);
     const data = processData(images, size);
     response.status(200).json({
       isSuccess: true,
       data,
+      pagination: { currentPage: page, maxPage, total },
       message: additionalMessage ? `Successful. ${additionalMessage}` : 'Successful'
     });
   } catch (error) {
@@ -62,12 +89,36 @@ export const getImagesByRegion = async (request, response) => {
   request.setTimeout(60000);
   try {
     const { size, additionalMessage } = getImageSize(request);
-    const { region } = request.params;
-    const images = await ImageSchema.find({ region });
+    const { currentPage = 1, region } = request.params;
+    const page = parseInt(currentPage);
+
+    if (!page || page < 1) {
+      return response.status(400).send({
+        isSuccess: false,
+        data: [],
+        message: `Failed, currentPage should be a integer that greater than 0. But you provide is '${currentPage}'`
+      });
+    }
+
+    const startIndex = (page - 1) * LIMIT; 
+    const total = await ImageSchema.countDocuments({ region });
+    const maxPage = Math.ceil(total / LIMIT);
+
+    if (page > maxPage) {
+      return response.status(400).send({
+        isSuccess: false,
+        data: [],
+        pagination: { currentPage: page, maxPage, total },
+        message: `Failed, currentPage can bigger then maxPage, maxPage is ${maxPage}`
+      });
+    }
+
+    const images = await ImageSchema.find({ region }).sort({ _id: 1 }).skip(startIndex).limit(LIMIT);;
     const data = processData(images, size);
     response.status(200).json({
       isSuccess: true,
       data,
+      pagination: { currentPage: page, maxPage, total },
       message: additionalMessage ? `Successful. ${additionalMessage}` : 'Successful'
     });
   } catch (error) {

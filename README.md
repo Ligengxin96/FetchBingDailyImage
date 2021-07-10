@@ -2,28 +2,38 @@
 
 You can use below apis to get bing historical daily images.
 
-### `(GET) https://getbingimages.herokuapp.com/v1/getimages`
+### `(GET) http://23.224.182.82:5001/v1/getimages/page/{currentPage}`
 
-Get all images.
+Get 20 images each.
 
-### `(GET) https://getbingimages.herokuapp.com/v1/getimages/random`
+example: http://23.224.182.82:5001/v1/getimages/page/1
+
+- `currentPage` parameter detail
+  - type: `int`
+  - value: `greater then 0 and less then maxPage`
+
+### `(GET) http://23.224.182.82:5001/v1/getimages/random`
 
 Get one random image.
 
-### `(GET) https://getbingimages.herokuapp.com/v1/getimages/{region}`
+### `(GET) http://23.224.182.82:5001/v1/getimages/page/{currentPage}/{region}`
 
 Get the specified region images.
 
-example: https://getbingimages.herokuapp.com/v1/getimages/zh-cn 
+example: http://23.224.182.82:5001/v1/getimages/page/1/zh-cn
+
+- `currentPage` parameter detail
+  - type: `int`
+  - value: `greater then 0 and less then maxPage`
 
 - `regoin` parameter detail
   - value: `zh-cn` | `en-us`
 
-### `(GET) https://getbingimages.herokuapp.com/v1/getimages/random/{region}`
+### `(GET) http://23.224.182.82:5001/v1/getimages/random/{region}`
 
 Get one random specified region image.
 
-example: https://getbingimages.herokuapp.com/v1/getimages/random/en-us
+example: http://23.224.182.82:5001/v1/getimages/random/en-us
 
 - `regoin` parameter detail
   - value: `zh-cn` | `en-us`
@@ -32,9 +42,9 @@ example: https://getbingimages.herokuapp.com/v1/getimages/random/en-us
 
 Get the different size images.
 
-example: https://getbingimages.herokuapp.com/v1/getimages?size=1366x768
+example: http://23.224.182.82:5001/v1/getimages/page/1?size=1366x768
 
-example: https://getbingimages.herokuapp.com/v1/getimages/en-us?size=1366x768
+example: http://23.224.182.82:5001/v1/getimages/page/1/en-us?size=1366x768
 
 - `size` parameter detail
   - value: 
