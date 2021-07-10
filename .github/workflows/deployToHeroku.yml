@@ -17,8 +17,15 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd  ~/server/FetchBingDailyImage
-            git pull
+            if [ ! -d "~/server/FetchBingDailyImage" ]; then
+              cd  ~/server
+              git clone https://github.com/Ligengxin96/FetchBingDailyImage.git
+              cd ./FetchBingDailyImage
+              git checkout apis
+            else 
+              cd  ~/server/FetchBingDailyImage
+              git pull
+            fi
             docker stop get-images || true && docker container rm get-images || true && docker image rm get-images -f || true
             docker build -t get-images .
             docker run -p 5001:5001 -d --name get-images get-images
