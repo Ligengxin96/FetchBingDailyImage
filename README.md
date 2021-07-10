@@ -2,25 +2,24 @@
 
 You can use below apis to get bing historical daily images.
 
-### `(GET) http://23.224.182.82:5001/v1/getimages/page/{currentPage}`
+### `(GET) https://www.ligengxin-server.top/getimages/v1/getimages/page/{currentPage}`
 
 Get 20 images each.
 
-example: http://23.224.182.82:5001/v1/getimages/page/1
+example: https://www.ligengxin-server.top/getimages/v1/getimages/page/1
 
 - `currentPage` parameter detail
   - type: `int`
   - value: `greater then 0 and less then maxPage`
 
-### `(GET) http://23.224.182.82:5001/v1/getimages/random`
+### `(GET) https://www.ligengxin-server.top/getimages/v1/getimages/random`
 
 Get one random image.
 
-### `(GET) http://23.224.182.82:5001/v1/getimages/page/{currentPage}/{region}`
-
+### `(GET) https://www.ligengxin-server.top/getimages/v1/getimages/page/{currentPage}/{region}`
 Get the specified region images.
 
-example: http://23.224.182.82:5001/v1/getimages/page/1/zh-cn
+example: https://www.ligengxin-server.top/getimages/v1/getimages/page/1/zh-cn
 
 - `currentPage` parameter detail
   - type: `int`
@@ -29,11 +28,11 @@ example: http://23.224.182.82:5001/v1/getimages/page/1/zh-cn
 - `regoin` parameter detail
   - value: `zh-cn` | `en-us`
 
-### `(GET) http://23.224.182.82:5001/v1/getimages/random/{region}`
+### `(GET) https://www.ligengxin-server.top/getimages/v1/getimages/random/{region}`
 
 Get one random specified region image.
 
-example: http://23.224.182.82:5001/v1/getimages/random/en-us
+example: https://www.ligengxin-server.top/getimages/v1/getimages/random/en-us
 
 - `regoin` parameter detail
   - value: `zh-cn` | `en-us`
@@ -42,9 +41,9 @@ example: http://23.224.182.82:5001/v1/getimages/random/en-us
 
 Get the different size images.
 
-example: http://23.224.182.82:5001/v1/getimages/page/1?size=1366x768
+example: https://www.ligengxin-server.top/getimages/v1/getimages/page/1?size=1366x768
 
-example: http://23.224.182.82:5001/v1/getimages/page/1/en-us?size=1366x768
+example: https://www.ligengxin-server.top/getimages/v1/getimages/page/1/en-us?size=1366x768
 
 - `size` parameter detail
   - value: 
