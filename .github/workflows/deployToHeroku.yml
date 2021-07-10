@@ -10,20 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Upload repo to own server
+      - name: Upload repo to own server and build server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            if [ ! -d "~/server/FetchBingDailyImage" ]; then
-              cd  ~/server
+            if [ ! -d "./server/FetchBingDailyImage" ]; then
+              cd  ./server
               git clone https://github.com/Ligengxin96/FetchBingDailyImage.git
               cd ./FetchBingDailyImage
               git checkout apis
             else 
-              cd  ~/server/FetchBingDailyImage
+              cd  ./server/FetchBingDailyImage
               git pull
             fi
             docker stop get-images || true && docker container rm get-images || true && docker image rm get-images -f || true
