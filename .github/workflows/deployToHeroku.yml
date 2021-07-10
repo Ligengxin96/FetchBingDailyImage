@@ -9,12 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set environment variables
-        env:
-          CONNECTION_URL: ${{ secrets.CONNECTION_URL }}
-
       - name: Upload repo to own server and build server
         uses: appleboy/ssh-action@master
+        env:
+          CONNECTION_URL: ${{ secrets.CONNECTION_URL }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
