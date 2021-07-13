@@ -29,8 +29,8 @@ const createPost = async(img) => {
     const formValues = { email: img.region === 'en-us' ? process.env.EMAIL_EN : process.env.EMAIL_CN, password: process.env.PASSWORD };
     const API = axios.create({ baseURL: serverhost });
     
-    const userPrefix = '/v1/user';
-    const postPrefix = '/v1/post';
+    const userPrefix = '/Ours-Album/v1/user';
+    const postPrefix = '/Ours-Album/v1/post';
   
     let userInfo = null;
     try {
