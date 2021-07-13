@@ -71,7 +71,7 @@ const fetchImageFromBing = async(api) => {
     const result = await sendRequest(url);
     const images = JSON.parse(result).images;
     for (let img of images) {
-      img['_id'] = img.hsh;
+      img._id = img.hsh;
       img.region = region;
       img.imgUrl = bingDomain + img.url;
       const existImage = await getImage(img.hsh);
