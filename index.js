@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json({ limit: '30mb', extended: true }));
 app.use(express.urlencoded({ limit: '30mb', extended: true }));
 
-app.use('/getimages/v1/getimages', imageRouter);
+app.use('/v1/getimages', imageRouter);
 
 mongoose.connect(databaseConnectStr, { 
   useNewUrlParser: true, 
