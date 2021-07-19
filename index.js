@@ -20,7 +20,7 @@ app.use('/getimages/v1/getimages', imageRouter);
 
 mongoose.connect(databaseConnectStr, { 
   useNewUrlParser: true, 
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 }).then(() => {
   app.listen(port, () => {
     console.log(`${new Date()}: Server running on port: ${port}`);
