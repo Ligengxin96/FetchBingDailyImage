@@ -32,6 +32,6 @@ const imageSchema = mongoose.Schema({
   }
 })
 
-const ImageSchema = mongoose.model('bingImages', imageSchema, 'bingImages');
+const ImageSchema = mongoose.model('bingImages', imageSchema);
 
 export default ImageSchema;
