@@ -11,13 +11,10 @@ jobs:
     steps:
       - name: Upload repo to own server and build server
         uses: appleboy/ssh-action@master
-        env:
-          CONNECTION_URL: ${{ secrets.CONNECTION_URL }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: CONNECTION_URL
           script: |
             if [ ! -d "./server/FetchBingDailyImage" ]; then
               cd  ./server
@@ -30,4 +27,4 @@ jobs:
             fi
             docker stop get-images || true && docker container rm get-images || true && docker image rm get-images -f || true
             docker build -t get-images .
-            docker run -e CONNECTION_URL=$CONNECTION_URL -p 5001:5001 --restart=always -d --name get-images get-images
+            docker run -p 5001:5001 --restart=always -d --name get-images get-images
