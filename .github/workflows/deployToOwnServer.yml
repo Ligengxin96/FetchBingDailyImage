@@ -31,5 +31,4 @@ jobs:
             docker stop get-images || true && docker container rm get-images || true && docker image rm get-images -f || true
             docker build -t get-images .
             docker run -e CONNECTION_URL=$CONNECTION_URL -p 5001:5001 --restart=always -d --name get-images get-images
-            cd /root/logs 
-            docker logs get-images >> get-images.log
+            docker logs get-images >> /root/logs/get-images.log
