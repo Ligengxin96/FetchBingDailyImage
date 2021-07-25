@@ -32,6 +32,18 @@ const createPost = async(img) => {
     const userPrefix = '/Ours-Album/v1/user';
     const postPrefix = '/Ours-Album/v1/post';
   
+    const commaIndex = img.copyright.indexOf('，') > -1 ? img.copyright.indexOf('，') : img.copyright.indexOf(',');
+    const copyrightIconIndex = img.copyright.indexOf('©');
+    const title = img.copyright.substring(0, commaIndex);
+    const tags = img.copyright.substring(commaIndex + 1, copyrightIconIndex - 1).trim().split(',');
+    
+    const existPost = await API.get(encodeURI(`${postPrefix}/?title=${title}&message=${img.copyright}&tags=${tags.join(',')}&currentPage=1`));
+    
+    if (existPost?.data?.data?.length) {
+      console.log(`Post already exist, skip`);
+      return;
+    }
+    
     let userInfo = null;
     try {
       const response = await API.post(`${userPrefix}/login`, formValues);
@@ -48,15 +60,8 @@ const createPost = async(img) => {
       return req;
     });
   
-    const commaIndex = img.copyright.indexOf('，') > -1 ? img.copyright.indexOf('，') : img.copyright.indexOf(',');
-    const copyrightIconIndex = img.copyright.indexOf('©');
-  
-    const title = img.copyright.substring(0, commaIndex);
-    const tags = img.copyright.substring(commaIndex + 1, copyrightIconIndex - 1).trim().split(',');
-  
-    let createdPost = null;
-    const newPost = { message: img.copyright, title, tags: [...tags, img.region.toUpperCase()], selectedFile: img.imgUrl }
-    createdPost = await API.post(`${postPrefix}`, newPost);
+    const newPost = { message: img.copyright, title, tags: [...tags, img.region.toUpperCase()], selectedFile: img.imgUrl, createdTime: new Date() };
+    let createdPost = await API.post(`${postPrefix}`, newPost);
    
     console.log(`Create post successful, postId: ${createdPost.data.data[0]._id}`);
     
@@ -74,7 +79,9 @@ const fetchImageFromBing = async(api) => {
       img._id = img.hsh;
       img.region = region;
       img.imgUrl = bingDomain + img.url;
+      
       const existImage = await getImage(img.hsh);
+      
       if (existImage) {
         console.log(`This image with hsh: ${existImage.hsh} is exist, need update image info.`);
         img.lastUpdateTime = new Date();
@@ -82,8 +89,9 @@ const fetchImageFromBing = async(api) => {
       } else {
         console.log(`Fetch image from Bing successful, img hsh: ${img.hsh}, img url: ${img.imgUrl}`);
         await createImage(img);
-        await createPost(img);
       }
+
+      await createPost(img);
     }
   } catch (error) {
     console.log(`Fetch image failed with error: ${error.message}`);
