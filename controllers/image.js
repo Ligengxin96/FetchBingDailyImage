@@ -3,7 +3,7 @@ import ImageSchema from '../models/image.js'
 export const getImage = async(imgUrl) => { 
   console.log(`Need be get image imgUrl: ${imgUrl}`);
   try {
-    const image = await ImageSchema.findById(imgUrl);
+    const image = await ImageSchema.find({ imgUrl });
     if (image) {
       console.log(`----------------- Begin of image info -------------------`);
       console.log(`${JSON.stringify(image)}`);

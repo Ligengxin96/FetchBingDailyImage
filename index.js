@@ -22,8 +22,7 @@ const connectDB = async() => {
 }
 
 const createPost = async(img) => {
-  console.log(`Begin create post with imgUrl: ${img.imgUrl}`);
-
+  console.log(`Begin create post, check the post with imgUrl: ${img.imgUrl} whether exist.`);
   try {
     const serverhost = process.env.SERVER_HOST; 
     const formValues = { email: img.region === 'en-us' ? process.env.EMAIL_EN : process.env.EMAIL_CN, password: process.env.PASSWORD };
@@ -43,6 +42,8 @@ const createPost = async(img) => {
       console.log(`Post already exist, skip`);
       return;
     }
+
+    console.log(`Creating post with imgUrl: ${img.imgUrl}`);
     
     let userInfo = null;
     try {
@@ -82,8 +83,8 @@ const fetchImageFromBing = async(api) => {
       
       const existImage = await getImage(img.imgUrl);
       
-      if (existImage) {
-        console.log(`This image with hsh: ${existImage.imgUrl} is exist, need update image info.`);
+      if (existImage && existImage.length > 0) {
+        console.log(`This image with imgUrl: ${existImage[0].imgUrl} is exist, update image info.`);
         img.lastUpdateTime = new Date();
         await updatImage(img.hsh, img);
       } else {
