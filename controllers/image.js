@@ -1,9 +1,9 @@
 import ImageSchema from '../models/image.js'
 
-export const getImage = async(hsh) => { 
-  console.log(`Need be get image hsh: ${hsh}`);
+export const getImage = async(imgUrl) => { 
+  console.log(`Need be get image imgUrl: ${imgUrl}`);
   try {
-    const image = await ImageSchema.findById(hsh);
+    const image = await ImageSchema.findById(imgUrl);
     if (image) {
       console.log(`----------------- Begin of image info -------------------`);
       console.log(`${JSON.stringify(image)}`);
