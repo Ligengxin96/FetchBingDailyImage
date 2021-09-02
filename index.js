@@ -36,7 +36,7 @@ const createPost = async(img) => {
     const title = img.copyright.substring(0, commaIndex);
     const tags = img.copyright.substring(commaIndex + 1, copyrightIconIndex - 1).trim().split(',');
     
-    const existPost = await API.get(encodeURI(`${postPrefix}/?title=${title}&message=${img.copyright}&tags=${tags.join(',')}&currentPage=1`));
+    const existPost = await API.get(encodeURI(`${postPrefix}/?title=&message=${img.copyright}&tags=&currentPage=1`));
     
     if (existPost?.data?.data?.length) {
       console.log(`Post already exist, skip`);
