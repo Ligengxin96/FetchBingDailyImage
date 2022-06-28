@@ -13,15 +13,15 @@ After deploying in heroku, heroku will automatically execute `npm start` command
 
 This is like we deploy a azure function in heroku, we can get a free azure function by this way.
 
-## `2021-06-15` To `2022-06-26` FetchBingDailyImage repo traffic data
+## `2021-06-15` To `2022-06-27` FetchBingDailyImage repo traffic data
 
 Total views data: `{ count: 1643, uniques: 91 }`
 
-Total clones data: `{ count: 1822, uniques: 904 }`
+Total clones data: `{ count: 1827, uniques: 908 }`
 
 ## Latest fetch images time
 
-Latest fetch images time: `2022-06-27 08:19:57`
+Latest fetch images time: `2022-06-28 08:19:56`
 
 ## To everyone
 
