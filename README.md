@@ -15,13 +15,13 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 ## `2022-12-30` To `2025-12-23` FetchBingDailyImage repo traffic data
 
-Total views data: `{ count: 2108, uniques: 568 }`
+Total views data: `{ count: 2107, uniques: 567 }`
 
-Total clones data: `{ count: 1884, uniques: 1519 }`
+Total clones data: `{ count: 1831, uniques: 1474 }`
 
 ## Latest fetch images time
 
-Latest fetch images time: `2025-12-23 08:25:36`
+Latest fetch images time: `2025-12-24 08:25:31`
 
 ## To everyone
 
