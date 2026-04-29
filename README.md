@@ -17,11 +17,11 @@ This is like we deploy a azure function in heroku, we can get a free azure funct
 
 Total views data: `{ count: 2108, uniques: 568 }`
 
-Total clones data: `{ count: 2336, uniques: 1807 }`
+Total clones data: `{ count: 2317, uniques: 1798 }`
 
 ## Latest fetch images time
 
-Latest fetch images time: `2026-04-28 10:09:47`
+Latest fetch images time: `2026-04-29 10:01:46`
 
 ## To everyone
 
